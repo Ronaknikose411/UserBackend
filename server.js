@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-const PORT = 4000;
+const PORT = 5000;
 const app = express();
 // middleware for cors
 app.use(

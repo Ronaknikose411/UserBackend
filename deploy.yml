@@ -1,0 +1,37 @@
+name: deploy node js backend code
+
+on:
+  push:
+      branches: [main]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+
+            - name: SSH into EC2 & Deploy
+              uses: appleboy/ssh-action@v0.1.6
+              with:
+                  host: ${{ secrets.EC2_HOST }}
+                  username: ubuntu
+                  key: ${{ secrets.EC2_SSH_KEY }}
+                  port: 22
+
+                  script: |
+
+                        #backend
+                        cd /home/ubuntu/backend
+                        git pull origin main
+
+                        sudo docker stop backend || true
+                        sudo docker rm backend || true
+
+                        sudo docker build -t backend:latest .
+                        sudo docker run -d --name backend -p 5000:5000 backend:latest
+                        
+
+

@@ -17,6 +17,9 @@ let users = [
     { name: "virat", email: "virat@gmail.com" },
     { name: "dhoni", email: "dhoni@gmail.com" },
     { name: "deepak", email: "deepak@gmail.com" },
+    
+    { name: "ronak", email: "ronak@gmail.com" },
+
 ];
 app.get("/api/users", (req, res) => {
     res.status(200).json({

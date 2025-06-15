@@ -13,10 +13,10 @@ app.listen(PORT, () => {
     console.log(`server is started on port ${PORT}`);
 });
 let users = [
-    { name: "Yogesh", email: "yogesh@gmail.com" },
+
     { name: "virat", email: "virat@gmail.com" },
     { name: "dhoni", email: "dhoni@gmail.com" },
-    { name: "deepak", email: "deepak@gmail.com" },
+ 
     
     { name: "ronak", email: "ronak@gmail.com" },
 
